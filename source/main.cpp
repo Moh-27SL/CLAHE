@@ -54,9 +54,16 @@ using namespace std;
 
 int main()
 {
-    PngImage img = load_png("result/bom.png");
+    PngImage img = load_png("result/lake.png");
 
-    clahe(img,32,10,0.6);
-    save_png("result/bom_2.png",img);
+    clahe(img, 32, 10, 0.6);
+//          |   |   |    |
+//          |   |   |    └── alpha (blend factor): 0.0 = no CLAHE, 1.0 = full CLAHE. REDUNDENT if img is gray scale
+//          |   |   └───── clip factor: lower = more aggressive contrast limiting
+//          |   └───────── tile size (M): the image will be divided into M x M tiles
+//          └───────────── input image (grayscale or RGB)
+
+        
+    save_png("result/lake_out.png",img);
     return 0;
 }
