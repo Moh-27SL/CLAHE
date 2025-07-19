@@ -64,7 +64,7 @@ For each tile and for each color channel:
 ### Step 5: Histogram Equalization
 Apply a blend of the equalized value and the original intensity:
   ```
-  HE(i) = alpha * c(i) * 255 + (1 - alpha) * i
+  HE(i) = alpha * c(i) * i + (1 - alpha) * i
   ```
 - `alpha` is the **blend** parameter in range [0.0, 1.0]  
   - 1.0 = full equalization  
